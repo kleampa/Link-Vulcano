@@ -1,0 +1,27 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} -f [NC,OR]
+RewriteCond %{REQUEST_FILENAME} -d [NC]
+RewriteRule .* - [L]
+
+ErrorDocument 404 /index.php?act=error
+RewriteRule ^login$ index.php?act=login [QSA]
+RewriteRule ^logout$ index.php?act=_ajax&op=logout [QSA]
+RewriteRule ^account$ index.php?act=account [QSA]
+RewriteRule ^api$ index.php?act=api [QSA]
+RewriteRule ^connector$ index.php?act=connector [QSA]
+RewriteRule ^download_connector$ index.php?act=_ajax&op=download_connector [QSA]
+
+RewriteRule ^websites$ index.php?act=websites [QSA]
+RewriteRule ^websites/delete$ index.php?act=_ajax&op=delete_website [QSA]
+
+RewriteRule ^slots$ index.php?act=slots [QSA]
+RewriteRule ^slots/add$ index.php?act=add_slot [QSA]
+RewriteRule ^slots/delete$ index.php?act=_ajax&op=delete_slot [QSA]
+
+RewriteRule ^links$ index.php?act=links [QSA]
+RewriteRule ^links/add$ index.php?act=add_link [QSA]
+RewriteRule ^links/delete$ index.php?act=_ajax&op=delete_link [QSA]
+RewriteRule ^links/edit$ index.php?act=edit_link [QSA]
+RewriteRule ^links/remove_link_slot$ index.php?act=_ajax&op=remove_link_slot [QSA]
